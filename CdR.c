@@ -113,15 +113,27 @@ int main()
 {
 	int opcao = 0;
 	int q = 1;
+	char pSystem [18];
+	setlocale(LC_ALL, "pt_BR.UTF-8");
 	
+	while(true) 
+	{
+	setlocale(LC_ALL, "pt_BR.UTF-8");
+	printf("--- Cartório de Registros EBAC ---\n\n");
+	printf("Administrador, realize seu login!\n\n Digite sua senha: ");
+	scanf("%18s", pSystem);
+	system("cls");
+	
+	if(strcmp(pSystem, "admin") == 0)
+	{
 	for (q=1;q=1;)
 	{	
-		setlocale(LC_ALL, "pt_BR.UTF-8");
 		printf("--- Cartório de Registros EBAC ---\n\n");
 		printf("Escolha a opção desejada do menu:\n\n");
 		printf("\t1 - Registro de indivíduo\n\n"); 
 		printf("\t2 - Consulta de cadastro de indivíduo\n\n"); 
 		printf("\t3 - Apagar cadastro de indivíduo\n\n");
+		printf("\t4 - Sair\n\n");
 		
 		printf("Opção: ");
 		
@@ -129,37 +141,49 @@ int main()
 		
 		system("cls");
 				
-switch (opcao) { 
-	case 1: 
-		do { 
-			addReg(); 
-			} 
-		while (askRet()); 
-		break; 
-		
-	case 2: 
-		do { 
-			conReg(); 
-			} 
-	while (askRet()); 
-	break; 
-	
-	case 3: 
-		do { 
-			delReg(); 
-			} 
-		while (askRet());
-		break;
+				switch (opcao) { 
+					case 1: 
+						do { 
+							addReg(); 
+									} 
+						while (askRet()); 
+						break; 
+						
+					case 2: 
+						do { 
+							conReg(); 
+									} 
+						while (askRet()); 
+						break; 
+						
+					case 3: 
+						do { 
+							delReg(); 
+									} 
+						while (askRet());
+						break;
+					
+					case 4: 
+                        printf("Executando saída do sistema...\n");
+                        system("pause");
+                        return 0;
 			
-			default:
-					printf("A opção selecionada não corresponde a um dos valores válidos. Insira 1, 2 ou 3.\n");
-					system("pause");
-			break;
-		}
+					default:
+						printf("A opção selecionada não corresponde a um dos valores válido. Insira 1, 2, 3 ou 4.\n");
+							system("pause");
+					break;
+								}
 		system("cls");
+        }
+    }
+        else
+        {
+            printf("Senha incorreta! Por favor consulte com seu administrador.\n\n");
+            system("pause");
+            system("cls");
+        }
+    }
+    return 0;
 }
-{
 	//printf("###This software belongs to an EBAC student and is part of a personal project, all rights reserved.###");
-}
-};
 
